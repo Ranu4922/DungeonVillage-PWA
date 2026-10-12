@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
+  <meta name="theme-color" content="#0b1518" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Dungeon Village" />
+  <title>Dungeon Village — PWA Prototype</title>
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="rotateGate"><div class="rotate-card"><div class="rotate-phone">↻</div><h1>Dungeon Village</h1><p>Bitte drehe dein Gerät ins Querformat.</p></div></div>
+  <div id="app">
+    <canvas id="gameCanvas" aria-label="Dungeon Village Spielwelt"></canvas>
+    <div id="hud">
+      <div class="hud-left glass">
+        <div class="brand-row"><span class="brand-mark">DV</span><div><strong>Dungeon Village</strong><span id="sceneLabel">Höhlendorf</span></div></div>
+        <div class="bars"><div class="bar hp"><i id="hpBar"></i><span id="hpText"></span></div><div class="bar xp"><i id="xpBar"></i><span id="xpText"></span></div></div>
+      </div>
+      <div class="hud-center glass"><div><span class="muted">Gold</span><strong id="goldText">0</strong></div><div><span class="muted">Tiefe</span><strong id="depthText">0</strong></div><div><span class="muted">Beute</span><strong id="lootText">0</strong></div></div>
+      <div class="hud-right"><button class="icon-btn glass" id="installBtn" title="PWA installieren" hidden>＋</button><button class="icon-btn glass" id="menuBtn" title="Menü">☰</button></div>
+    </div>
+    <div id="partyBar" class="glass"></div>
+    <div id="hint" class="glass"></div>
+    <div id="toastStack"></div>
+    <div id="mobileControls">
+      <div id="joystick" class="joystick"><div class="joy-ring"></div><div id="joyKnob" class="joy-knob"></div></div>
+      <div class="action-cluster">
+        <button id="skillBtn" class="action skill"><span>✦</span><small>Skill</small><b id="skillCd"></b></button>
+        <button id="dashBtn" class="action dash"><span>➤</span><small>Dash</small><b id="dashCd"></b></button>
+        <button id="attackBtn" class="action attack"><span>⚔</span><small>Angriff</small><b id="attackCd"></b></button>
+        <button id="interactBtn" class="action interact"><span>◆</span><small>Aktion</small></button>
+      </div>
+    </div>
+    <div id="modalShade" class="modal-shade hidden"><section id="modal" class="modal glass"><header><div><span class="eyebrow" id="modalEyebrow">DUNGEON VILLAGE</span><h2 id="modalTitle">Menü</h2></div><button id="closeModal" class="icon-btn">×</button></header><div id="modalBody"></div></section></div>
+    <div id="deathScreen" class="death-screen hidden"><div class="death-card glass"><span class="eyebrow">DER RUN IST VORBEI</span><h2>Die Höhle hat ihren Preis gefordert.</h2><p>Mitgeführte Beute und aktuelle Gefährten sind verloren. Deine sichere Bank bleibt bestehen.</p><button id="returnVillageBtn" class="primary">Zurück ins Dorf</button></div></div>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>
